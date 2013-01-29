@@ -34,6 +34,7 @@ func process(request string) (response string) {
 }
 
 func read(c net.Conn) {
+	defer c.Close()
 	bw := bufio.NewWriter(c)
 	br := bufio.NewReader(c)
 	// Get request
